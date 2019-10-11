@@ -32,4 +32,4 @@ class BlogApp extends StatelessWidget
     ); // MaterialApp
 
   }
-}
+}  
