@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "709957154397",
+    "firebase_url": "https://iosandandroidblogapp-d0f77.firebaseio.com",
+    "project_id": "iosandandroidblogapp-d0f77",
+    "storage_bucket": "iosandandroidblogapp-d0f77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709957154397:android:1e79dde476df9437dc7fb4",
+        "android_client_info": {
+          "package_name": "com.example.blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709957154397-asse10oc0un5bvbge8ojqtfv500o0shs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuV30j7zomNnofIVBqDTKLM1I0ErxPcPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709957154397-asse10oc0un5bvbge8ojqtfv500o0shs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "709957154397-25dqum7p5ujo81vj0hl300adfj6j7avo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.blog"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
