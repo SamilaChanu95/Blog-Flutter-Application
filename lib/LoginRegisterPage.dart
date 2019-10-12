@@ -1,9 +1,21 @@
-import 'package:flutter/material.dart';
-//every dart file need that import packages
+import 'package:flutter/material.dart'; //every dart file need that import packages
+import 'Authentication.dart';
+
+
 
 //generate stateful widget for LoginRegisterPage
 class LoginRegisterPage extends StatefulWidget
 {
+
+  LoginRegisterPage
+  ({
+      this.auth,
+      this.onSignedIn,
+  });
+
+  final AuthImplementation auth;
+  final VoidCallback onSignedIn;
+
     State<StatefulWidget> createState()
     {
         return _LoginRegisterState();
@@ -42,6 +54,36 @@ class _LoginRegisterState extends State<LoginRegisterPage>
       }
   }
 
+  // That method using when user press the Login button 
+  void validateAndSubmit() async
+  {
+    if(validateAndSave())
+    {
+      try
+      {
+        if(_formType == FormType.login)
+        {
+          //if login
+          String userId = await widget.auth.SignIn(_email, _password);
+          print("login userId = "+ userId);
+        }
+        else
+        {
+          //if not login
+          String userId = await widget.auth.SignUp(_email, _password);
+          print("Register userId = "+ userId);
+        }
+
+        widget.onSignedIn();
+      }
+      catch(e)
+      {
+          print("Error = "+ e.toString());
+      }
+    }
+
+
+  }
 
   void moveToRegister()
   {
@@ -180,7 +222,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                     ),
                   color: Colors.black54,
                   textColor: Colors.yellowAccent[400],
-                  onPressed: validateAndSave,
+                  onPressed: validateAndSubmit,
               ),
 
               new FlatButton
@@ -220,7 +262,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                     ),
                   color: Colors.black54,  
                   textColor: Colors.yellowAccent[400],
-                  onPressed: validateAndSave,
+                  onPressed: validateAndSubmit,
               ),
 
               new FlatButton
