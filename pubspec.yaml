@@ -25,6 +25,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   firebase_auth:
   #if we using the firebase login, register as the database then need to use the firebase auth dependancy
+  firebase_database:
+  firebase_storage:
+  intl: ^0.15.7
+  image_picker:
 
 dev_dependencies:
   flutter_test:
