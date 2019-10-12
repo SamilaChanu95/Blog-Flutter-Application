@@ -70,14 +70,14 @@ class _LoginRegisterState extends State<LoginRegisterPage>
         {
           //if login
           String userId = await widget.auth.SignIn(_email, _password);
-          dialogBox.information(context, "Congratulations", "your are logged in successfully.");
+          //dialogBox.information(context, "Congratulations", "your are logged in successfully.");
           print("login userId = "+ userId);
         }
         else
         {
           //if not login
           String userId = await widget.auth.SignUp(_email, _password);
-          dialogBox.information(context, "Congratulations", "your account has been created successfully.");
+          //dialogBox.information(context, "Congratulations", "your account has been created successfully.");
           print("Register userId = "+ userId);
         }
 
