@@ -83,6 +83,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
       }
       catch(e)
       {
+          dialogBox.information(context, "Error = ", e.toString()); //set the dialog box for show the error
           print("Error = "+ e.toString());
       }
     }
