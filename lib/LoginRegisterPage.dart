@@ -70,6 +70,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
         {
           //if login
           String userId = await widget.auth.SignIn(_email, _password);
+          dialogBox.information(context, "Congratulations", "your are logged in successfully.");
           print("login userId = "+ userId);
         }
         else
