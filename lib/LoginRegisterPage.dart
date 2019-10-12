@@ -1,5 +1,7 @@
+import 'package:blog/DialogBox.dart';
 import 'package:flutter/material.dart'; //every dart file need that import packages
 import 'Authentication.dart';
+import 'DialogBox.dart';
 
 
 
@@ -32,6 +34,9 @@ enum FormType
 
 class _LoginRegisterState extends State<LoginRegisterPage> 
 {
+  DialogBox dialogBox = new DialogBox(); // intialize the dialogBox
+
+
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
   String _email = "";
