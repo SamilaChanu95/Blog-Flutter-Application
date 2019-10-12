@@ -1,6 +1,7 @@
+import 'package:blog/Authentication.dart';
 import 'package:flutter/material.dart';  //every dart file need that import packages
-import 'LoginRegisterPage.dart';
-import 'HomePage.dart';
+import 'Mapping.dart';
+import 'Authentication.dart';
 
 
 
@@ -28,7 +29,7 @@ class BlogApp extends StatelessWidget
 
       ), // ThemeData
 
-      home: HomePage(),
+      home: MappingPage(auth: Auth(),),
     ); // MaterialApp
 
   }
