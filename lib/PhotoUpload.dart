@@ -26,6 +26,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
   {
     //get the image from the mobile phone gallary
     var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    
     setState(() 
     {
       sampleImage = tempImage;
@@ -48,7 +49,6 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     }
   }
 
-   
 
   @override
   Widget build(BuildContext context)
@@ -83,7 +83,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     (
       child: new Form
       (
-          key: formkey,
+        key: formkey,
 
         child: Column
         (
