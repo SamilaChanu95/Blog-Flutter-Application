@@ -42,6 +42,10 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
       form.save();
       return true;
     }
+    else
+    {
+      return false;
+    }
   }
 
    
@@ -59,6 +63,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
       body: new Center
       (
+              //sample image is null then display that msg on the screen
         child: sampleImage == null ? Text("Select an image"): enableUpload(),//if sampleImage is null then allow to user for select the image from the gallary 
       ),
 
@@ -94,7 +99,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
               validator: (value)
               {
-                return value.isEmpty ? 'Blog Description is required' : null
+                return value.isEmpty ? 'Blog Description is required' : null;
               },
 
               onSaved: (value)

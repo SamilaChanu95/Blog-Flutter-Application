@@ -16,6 +16,9 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
+module:
+  androidX: true
+
 dependencies:
   flutter:
     sdk: flutter
@@ -28,7 +31,9 @@ dependencies:
   firebase_database:
   firebase_storage:
   intl: ^0.15.7
+  #use to get the current time and date
   image_picker:
+  #use for pick the image from the device gallery
 
 dev_dependencies:
   flutter_test:
