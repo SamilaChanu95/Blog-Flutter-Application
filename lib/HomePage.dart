@@ -1,4 +1,5 @@
 import 'package:blog/PhotoUpload.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'Authentication.dart';
 import 'PhotoUpload.dart';
@@ -30,6 +31,42 @@ class _HomePageState extends State<HomePage>
 
   //Posts need to show as thw List Data type
   List<Posts> postsList = [];
+
+  @override
+  void initState() { // method for retrieve the data from the database
+    
+    super.initState();
+
+    DatabaseReference postsRef = FirebaseDatabase.instance.reference().child("Posts"); //get the data from the firebase database reference "Posts"
+  
+    postsRef.once().then((DataSnapshot snap)
+    {
+      var KEYS = snap.value.keys; //ek ek  postsRef ekata adala key and data variable 2 kata gani.
+      var DATA = snap.value;
+
+      postsList.clear();
+
+      for(var individualKey in KEYS)
+      {
+        Posts posts = new Posts 
+        (
+          DATA[individualKey]['image'],
+          DATA[individualKey]['description'],
+          DATA[individualKey]['date'],
+          DATA[individualKey]['time'],
+        ); //create new post
+
+        postsList.add(posts);
+      }
+
+      setState(() 
+      {
+        print('Length : $postsList.length'); //return the total no. posts
+
+      });
+
+    });
+  }
 
 
   void _logoutUser() async
