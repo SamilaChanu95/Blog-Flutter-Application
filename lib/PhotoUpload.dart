@@ -68,14 +68,34 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
       
       print("Image URL is: "+url);//returns the string representation of the object
     
+      goToHomePage(); //method for gto the home page with the new post
+
       saveToDatabase(url); //then save that url in the data base which postimage store in the storage
     }
   }
 
-void saveToDatabase(url)
+  void saveToDatabase(url)
   {
-    var dbtimeKey = new DateTime.now(),
-    
+    var dbtimeKey = new DateTime.now();
+    var formatDate = new DateFormat('MMM d,yyyy');
+    var formatTime = new DateFormat('EEEE, hh:mm aaa');
+
+
+    String date = formatDate.format(dbtimeKey); //get the date using the formatDate 
+    String time = formatTime.format(dbtimeKey); //get the time using the formatTime
+
+    DatabaseReference ref = FirebaseDatabase.instance.reference();
+
+    var data = 
+    { 
+      "image":url,
+      "description": _myValue,
+      "date": date,
+      "time": time,
+
+    };
+
+    ref.child("Posts").push().set(data); //database eke Posts child eke data, propertise 4 n save we
   }
   
 
