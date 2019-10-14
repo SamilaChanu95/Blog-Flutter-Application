@@ -2,6 +2,7 @@ import 'package:blog/PhotoUpload.dart';
 import 'package:flutter/material.dart';
 import 'Authentication.dart';
 import 'PhotoUpload.dart';
+import 'Posts.dart';
 
 class HomePage extends StatefulWidget
 { 
@@ -26,6 +27,10 @@ class HomePage extends StatefulWidget
 
 class _HomePageState extends State<HomePage>
 {
+
+  //Posts need to show as thw List Data type
+  List<Posts> postsList = [];
+
 
   void _logoutUser() async
   {
