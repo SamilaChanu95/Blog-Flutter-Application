@@ -19,6 +19,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
   File sampleImage;
   String _myValue;
+  String url;
   final formkey = new GlobalKey<FormState>();
 
 
@@ -50,13 +51,34 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
   }
 
 
-  void uploadStatusImage()
+  void uploadStatusImage() async
   {
+    if(validateAndSave()) //save karaathinm pamanak post eka store we
+    {
+      final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Post Images"); //give the path storage for the image to store in the firebase database
     
+      var timeKey = new DateTime.now(); // get the current time
+
+      final StorageUploadTask uploadTask = postImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
+      //sample image eka time ekth ekka jpg format eken storage eke upload we
+
+      var ImageUrl = await (await uploadTask.onComplete).ref.getDownloadURL(); // get the url of the image stored in Storage
+    
+      url = ImageUrl.toString(); 
+      
+      print("Image URL is: "+url);//returns the string representation of the object
+    
+      saveToDatabase(url); //then save that url in the data base which postimage store in the storage
+    }
   }
 
+
+  
+
+
+
   @override
-  Widget build(BuildContext context)
+  Widget build(BuildContext context) 
   {
     return new Scaffold
     (
