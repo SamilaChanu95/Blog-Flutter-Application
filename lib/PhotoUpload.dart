@@ -4,6 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart'; //get the image from the mobile phone gallary
 import 'dart:io';
+import 'HomePage.dart';
 
 
 
@@ -98,6 +99,18 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     ref.child("Posts").push().set(data); //database eke Posts child eke data, propertise 4 n save we
   }
   
+  void goToHomePage()
+  {
+    Navigator.push
+    (
+        context, 
+        MaterialPageRoute(builder: (context)
+        {
+          return new HomePage();
+        }
+      )
+    );
+  }
 
 
 
