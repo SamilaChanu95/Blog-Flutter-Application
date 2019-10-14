@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage>
           color: Colors.indigo,
           child: new Container
           (
-            margin: const EdgeInsets.only(left: 50.0, right: 50.0),
+            margin: const EdgeInsets.only(left: 60.0, right: 60.0),
             child: new Row
             (
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,8 +171,8 @@ class _HomePageState extends State<HomePage>
     {
       return new Card
       (
-        elevation: 10.0,
-        margin: EdgeInsets.all(15.0),
+        elevation: 8.0,
+        margin: EdgeInsets.all(12.0),
 
         child: new Container
         (
@@ -185,6 +185,7 @@ class _HomePageState extends State<HomePage>
               new Row
               (
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: <Widget>
                   [
                     new Text
@@ -192,13 +193,7 @@ class _HomePageState extends State<HomePage>
                       date,
                       style: Theme.of(context).textTheme.subtitle,
                       textAlign: TextAlign.center,
-                //      style: TextStyle
-                //        ( 
-                //          fontSize: 22.0,
-                //          fontFamily: 'Voces', 
-                //          fontStyle: FontStyle.normal, 
-                //          color: Theme.of(context).accentColor,  
-                //        ),
+                 
                     ),
 
                     new Text
@@ -207,12 +202,18 @@ class _HomePageState extends State<HomePage>
                       style: Theme.of(context).textTheme.subtitle,
                       textAlign: TextAlign.center,
                     ),
+
                   ],
+
               ),
 
               SizedBox(height: 10.0,),
 
-              new Image.network(image, fit:BoxFit.cover),
+              new Image.network
+              (
+                image,
+                fit: BoxFit.cover,   
+              ),
 
               SizedBox(height: 10.0,),
 
@@ -221,10 +222,15 @@ class _HomePageState extends State<HomePage>
                 description,
                 style: Theme.of(context).textTheme.subhead,
                 textAlign: TextAlign.center,
-              ), 
+              ),
+
             ],
+
           ),
-        )
+
+        ),
+
       );
+
     }
 }
