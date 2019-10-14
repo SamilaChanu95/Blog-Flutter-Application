@@ -15,7 +15,17 @@ class DialogBox
       {
         return AlertDialog
         (
-          title: Text(title),
+          title: Text(
+            title,
+            style: TextStyle
+              (
+                fontSize: 20.0, 
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Colors.black 
+              ),
+            ),
+          backgroundColor: Theme.of(context).accentColor,
           content: SingleChildScrollView
           (
             child: ListBody
@@ -33,8 +43,17 @@ class DialogBox
           [
             FlatButton
             (
-              child: Text("ok"),
-
+              child: Text(
+                "ok",
+                style: TextStyle
+                  (
+                    fontSize: 20.0, 
+                    fontFamily: 'Voces', 
+                    fontStyle: FontStyle.normal, 
+                    color: Colors.black 
+                  )
+                ),
+                
               onPressed: ()
               {
                 return Navigator.pop(context);

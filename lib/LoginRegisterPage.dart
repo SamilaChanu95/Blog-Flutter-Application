@@ -85,8 +85,8 @@ class _LoginRegisterState extends State<LoginRegisterPage>
       }
       catch(e)
       {
-          dialogBox.information(context, "Error = ", e.toString()); //set the dialog box for show the error
-          print("Error = "+ e.toString());
+          dialogBox.information(context, "Error ", e.toString()); //set the dialog box for show the error
+          print("Error "+ e.toString());
       }
     }
 
@@ -162,16 +162,24 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                 labelText: 'Email',
                 labelStyle: new TextStyle
                   (
-                    fontSize: 14.0, 
+                    fontSize: 16.0, 
                     fontFamily: 'Voces', 
                     fontStyle: FontStyle.normal, 
-                    color: Colors.yellowAccent[400] 
+                    color: Theme.of(context).accentColor, 
                   )
                 ),
               validator: (value)
               {
                   return value.isEmpty ? 'Email is required' : null;
               },
+
+              style: new TextStyle
+              (
+                fontSize: 16.0, 
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Colors.black,
+              ),
 
               onSaved: (value)
               {
@@ -187,10 +195,10 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                 labelText: 'Password',
                 labelStyle: new TextStyle
                   (
-                    fontSize: 14.0, 
+                    fontSize: 16.0, 
                     fontFamily: 'Voces', 
                     fontStyle: FontStyle.normal, 
-                    color: Colors.yellowAccent[400] 
+                    color: Theme.of(context).accentColor, 
                   )
                 ),
                 obscureText: true,
@@ -199,6 +207,14 @@ class _LoginRegisterState extends State<LoginRegisterPage>
               {
                   return value.isEmpty ? 'Password is required' : null;
               },
+
+              style: new TextStyle
+              (
+                fontSize: 16.0, 
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Colors.black,
+              ),
 
               onSaved: (value)
               {
@@ -225,11 +241,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                         fontSize: 20.0, 
                         fontFamily: 'Voces', 
                         fontStyle: FontStyle.normal, 
-                        color: Colors.yellowAccent[400] 
+                        color: Theme.of(context).accentColor, 
                       )
                     ),
-                  color: Colors.black54,
-                  textColor: Colors.yellowAccent[400],
+                  color: Colors.black,
+                  textColor: Theme.of(context).accentColor,
                   onPressed: validateAndSubmit,
               ),
 
@@ -239,13 +255,13 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                     "Not have an Account? Create Account?", 
                     style: new TextStyle
                       (
-                        fontSize: 14.0, 
+                        fontSize: 15.0, 
                         fontFamily: 'Voces', 
                         fontStyle: FontStyle.normal, 
-                        color: Colors.yellowAccent[400] 
+                        color: Theme.of(context).accentColor, 
                         )
                       ),
-                  textColor: Colors.yellowAccent[400],
+                  textColor: Theme.of(context).accentColor,
                   onPressed: moveToRegister,
 
               ),
@@ -265,11 +281,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                         fontSize: 20.0, 
                         fontFamily: 'Voces', 
                         fontStyle: FontStyle.normal, 
-                        color: Colors.yellowAccent[400] 
+                        color: Theme.of(context).accentColor,
                       )
                     ),
-                  color: Colors.black54,  
-                  textColor: Colors.yellowAccent[400],
+                  color: Colors.black,  
+                  textColor: Theme.of(context).accentColor,
                   onPressed: validateAndSubmit,
               ),
 
@@ -279,13 +295,13 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                     "Already have an Account? Login", 
                     style: new TextStyle
                       (
-                        fontSize: 14.0, 
+                        fontSize: 16.0, 
                         fontFamily: 'Voces', 
                         fontStyle: FontStyle.normal, 
-                        color: Colors.yellowAccent[400] 
+                        color: Theme.of(context).accentColor,
                         )
                       ),
-                  textColor: Colors.yellowAccent[400],
+                  textColor: Theme.of(context).accentColor,
                   onPressed: moveToLogin,
 
               ),

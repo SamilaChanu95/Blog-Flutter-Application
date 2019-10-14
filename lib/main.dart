@@ -20,12 +20,13 @@ class BlogApp extends StatelessWidget
       (
       //avoid the debug tag
       debugShowCheckedModeBanner: false,
-
+      
       title:  "Blog",
 
       theme: new ThemeData
-        (
+      (
         primarySwatch: Colors.indigo,
+        accentColor: Color(0xffFFFC01),
 
       ), // ThemeData
 

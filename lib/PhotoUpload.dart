@@ -57,21 +57,47 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     (
       appBar: new AppBar
       (
-        title: new Text("Upload Image"),
+        title: new Text
+        (
+          "Upload Image",
+          style: TextStyle
+              ( 
+                fontSize: 22.0,
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Theme.of(context).accentColor,  
+              ),
+        ),
         centerTitle: true,
       ),
 
       body: new Center
       (
               //sample image is null then display that msg on the screen
-        child: sampleImage == null ? Text("Select an image"): enableUpload(),//if sampleImage is null then allow to user for select the image from the gallary 
+        child: sampleImage == null ? Text
+        (
+          "Select an image",
+          style: TextStyle
+              ( 
+                fontSize: 16.0,
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Colors.black, 
+                 
+              ),
+        ): enableUpload(),//if sampleImage is null then allow to user for select the image from the gallary 
       ),
 
       floatingActionButton: new FloatingActionButton
       (
         onPressed: getImage,
+        backgroundColor: Colors.indigo,
         tooltip: 'Add Image',
-        child: new Icon(Icons.add_a_photo),
+        child: new Icon
+        (
+          Icons.add_a_photo,
+          color: Theme.of(context).accentColor,
+        ),
       ),
 
     );
@@ -92,15 +118,32 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
             Image.file(sampleImage, height: 330.0, width: 660.0),
 
             SizedBox(height: 15.0,),
-
-            TextFormField
+            new TextFormField
             (
-              decoration: new InputDecoration(labelText: 'Description'),
+              
+              decoration: new InputDecoration
+              (
+                labelText: 'Description',
+                fillColor: Theme.of(context).accentColor,
+                border: new OutlineInputBorder
+                (
+                  borderRadius: new BorderRadius.circular(25.0),
+                  borderSide: new BorderSide(),
+                ),
+              ),
 
               validator: (value)
               {
                 return value.isEmpty ? 'Blog Description is required' : null;
               },
+
+              style: new TextStyle
+              (
+                fontSize: 16.0, 
+                fontFamily: 'Voces', 
+                fontStyle: FontStyle.normal, 
+                color: Colors.black,
+              ),
 
               onSaved: (value)
               {
@@ -121,7 +164,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
                         fontSize: 20.0, 
                         fontFamily: 'Voces', 
                         fontStyle: FontStyle.normal, 
-                        color: Colors.yellowAccent[400] 
+                        color: Theme.of(context).accentColor, 
                       ),
               ),              
               color: Colors.indigo,
