@@ -103,7 +103,14 @@ class _HomePageState extends State<HomePage>
         ),
         body: new Container
         (
-          
+          child: postsList.length == 0 ? new Text("No  Blog Post available") : new ListView.builder
+          ( 
+            itemCount: postsList.length,
+            itemBuilder: (_, index)
+            {
+              return PostsUI(postsList[index].image, postsList[index].description, postsList[index].date, postsList[index].time);
+            }
+          ),
         ),
 
         bottomNavigationBar: new BottomAppBar
@@ -111,7 +118,7 @@ class _HomePageState extends State<HomePage>
           color: Colors.indigo,
           child: new Container
           (
-            margin: const EdgeInsets.only(left: 60.0, right: 60.0),
+            margin: const EdgeInsets.only(left: 50.0, right: 50.0),
             child: new Row
             (
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,5 +165,66 @@ class _HomePageState extends State<HomePage>
 
       );
       
+    }
+
+    Widget PostsUI(String image,String description,String date,String time)
+    {
+      return new Card
+      (
+        elevation: 10.0,
+        margin: EdgeInsets.all(15.0),
+
+        child: new Container
+        (
+          padding: new EdgeInsets.all(14.0),
+          child: new Column
+          (
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>
+            [
+              new Row
+              (
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>
+                  [
+                    new Text
+                    (
+                      date,
+                      style: Theme.of(context).textTheme.subtitle,
+                      textAlign: TextAlign.center,
+                //      style: TextStyle
+                //        ( 
+                //          fontSize: 22.0,
+                //          fontFamily: 'Voces', 
+                //          fontStyle: FontStyle.normal, 
+                //          color: Theme.of(context).accentColor,  
+                //        ),
+                    ),
+
+                    new Text
+                    (
+                      time,
+                      style: Theme.of(context).textTheme.subtitle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+              ),
+
+              SizedBox(height: 10.0,),
+
+              new Image.network(image, fit:BoxFit.cover),
+
+              SizedBox(height: 10.0,),
+
+              new Text
+              (
+                description,
+                style: Theme.of(context).textTheme.subhead,
+                textAlign: TextAlign.center,
+              ), 
+            ],
+          ),
+        )
+      );
     }
 }
