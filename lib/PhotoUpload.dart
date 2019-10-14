@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart'; //get the image from the mobile phone gallary
 import 'dart:io';
 
 
@@ -50,6 +50,11 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
   }
 
 
+  void uploadStatusImage()
+  {
+    
+  }
+
   @override
   Widget build(BuildContext context)
   {
@@ -88,7 +93,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
         ): enableUpload(),//if sampleImage is null then allow to user for select the image from the gallary 
       ),
 
-      floatingActionButton: new FloatingActionButton
+      floatingActionButton: new FloatingActionButton //add floating button
       (
         onPressed: getImage,
         backgroundColor: Colors.indigo,
@@ -168,7 +173,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
                       ),
               ),              
               color: Colors.indigo,
-              onPressed: validateAndSave,  
+              onPressed: uploadStatusImage,  
             ),
 
           ],
