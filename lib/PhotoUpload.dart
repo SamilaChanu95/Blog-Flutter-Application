@@ -52,9 +52,9 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
   }
 
 
-  void uploadStatusImage() async
+  void uploadStatusImage() async //for store the image with post in the firebase database
   {
-    if(validateAndSave()) //save karaathinm pamanak post eka store we
+    if(validateAndSave()) //save karai nam pamanak post eka store we
     {
       final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Post Images"); //give the path storage for the image to store in the firebase database
     
@@ -244,4 +244,5 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     );
 
   }
+  
 }
